@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cx.tel.sales.mapper.account.AccountMapper" >
+	<resultMap id="accountResultMap" type="com.cx.tel.sales.domain.account.Account">
+		<result column="UUID" property="uuid" /> <!--主键ID -->
+		<result column="ACCOUNT" property="account" /> <!--登陆账户[手机号] -->
+		<result column="PASSWORD" property="password" /> <!--登陆密码 -->
+		<result column="SALT" property="salt" /> <!--盐值 -->
+		<result column="STATE" property="state" /> <!--账号状态1:可用2:冻结3:黑名单 -->
+		<result column="CREATE_TIME" property="createTime" /> <!--创建时间 -->
+		<result column="FIRST_LOGIN_TIME" property="firstLoginTime" /> <!--第一次登陆时间 -->
+		<result column="LAST_LOGIN_TIME" property="lastLoginTime" /> <!--最近一次登陆时间 -->
+		<result column="PARENT_UUID" property="parentUuid" /> <!--账号的上级[谁给的账号] -->
+	</resultMap>
+	<sql id="selectAccountSql">
+		<![CDATA[
+			SELECT T.UUID,T.ACCOUNT,T.PASSWORD,T.SALT,T.STATE,T.CREATE_TIME,T.FIRST_LOGIN_TIME,T.LAST_LOGIN_TIME,T.PARENT_UUID FROM ACCOUNT T
+		]]>
+	</sql>
+	
+	<!--default gencode selectByUUid -->
+	<select id="selectByUUid" parameterType="java.lang.String" resultMap="accountResultMap">
+		<include refid="selectAccountSql"/>	
+		<![CDATA[ WHERE T.UUID=#{uuid}]]>
+	</select>
+	
+</mapper>
