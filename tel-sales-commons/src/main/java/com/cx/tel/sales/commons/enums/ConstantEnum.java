@@ -6,14 +6,14 @@ package com.cx.tel.sales.commons.enums;
  */
 public enum ConstantEnum {
 	//全局操作成功失败
-	_SUCCESS("操作成功", 0),
+	_SUCCESS("操作成功", 200),
 	_FAIL("操作失败", -1),
 	
 	//商业业务错误
 	_bus_SERVER_ERROR("%s",-1),
 	
 	_FAIL_TOKEN_ERROR("非法Token",-100),
-	_FAIL_TOKEN_exceed("token过期",-100),
+	_FAIL_TOKEN_exceed("token过期",-200),
 	
 	//开发缺少必要参数
 	_DEV_PARAM_NULL("缺少必要参数%s",-100),
@@ -22,7 +22,6 @@ public enum ConstantEnum {
 	
 	
 	_FAIL_DATA_NULL("数据不存在或已被删除",-1),
-	
 	_manage_setting_error("管理员[%s]数据配置错误",-500),
 	
 	_CONTROLLER_EXP("服务好像出问题了,稍后再试下",-500);

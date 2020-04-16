@@ -8,6 +8,7 @@ public class RedisKeys {
 	
 	
 	//login user _key
+	public static final int redis_app_login_user_time = 30; //token有效时间30分钟
 	public static final String redis_app_login_user = "app_login_key_";
  
 	

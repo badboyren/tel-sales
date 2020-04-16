@@ -1,6 +1,7 @@
 package com.cx.tel.sales.service.account.impl;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cx.tel.sales.commons.components.redis.RedisUtils;
 import com.cx.tel.sales.commons.constants.account.AccountCons;
 import com.cx.tel.sales.commons.constants.redis.RedisKeys;
-import com.cx.tel.sales.commons.utils.exception.GlobalMsgThrowException;
+import com.cx.tel.sales.commons.global.GlobalMsgThrowException;
 import com.cx.tel.sales.commons.utils.sign.MD5Util;
 import com.cx.tel.sales.domain.account.Account;
 import com.cx.tel.sales.mapper.account.AccountMapper;
@@ -70,6 +71,12 @@ public class  AccountServiceImpl extends ServiceImpl<AccountMapper, Account> imp
 		if (!pwd.equals(dbOne.getPassword())) { //
 			GlobalMsgThrowException.busServerExp("用户名或密码错误");
 		} 
+		
+		//设置redis cache
+		String redisKey = RedisKeys.redis_app_login_user + dbOne.getUuid();
+		redisUtils.set(redisKey, dbOne.getUuid(),
+				RedisKeys.redis_app_login_user_time, TimeUnit.MINUTES); //设置token
+		
 		return dbOne; 
 	}
 	@Override

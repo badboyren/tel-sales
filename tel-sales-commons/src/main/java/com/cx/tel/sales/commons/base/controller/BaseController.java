@@ -2,10 +2,14 @@ package com.cx.tel.sales.commons.base.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.authc.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cx.tel.sales.commons.base.entity.BaseObject;
+import com.cx.tel.sales.commons.components.jwt.JwtUtilComponent;
+import com.cx.tel.sales.commons.constants.http.HttpHandler;
 import com.cx.tel.sales.commons.enums.ConstantEnum;
 import com.cx.tel.sales.commons.out.WebResout;
 
@@ -64,11 +68,10 @@ public class BaseController extends BaseObject {
 		  out.setDesc(ConstantEnum._FAIL.getDesc());
 		  return out;
 	  }
-      public WebResout fail(HttpServletRequest request,String data) {
+      public WebResout fail(HttpServletRequest request,String msg) {
         WebResout out = new WebResout(request);
         out.setCode(ConstantEnum._FAIL.getVal());
-        out.setDesc(ConstantEnum._FAIL.getDesc());
-        out.setData(data);
+        out.setDesc(msg);
         return out;
       }
       //自己指定错误枚举提示
