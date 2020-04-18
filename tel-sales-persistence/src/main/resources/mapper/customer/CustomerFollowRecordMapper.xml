@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cx.tel.sales.mapper.customer.CustomerFollowRecordMapper" >
+	<resultMap id="customerFollowRecordResultMap" type="com.cx.tel.sales.domain.customer.CustomerFollowRecord">
+		<result column="UUID" property="uuid" /> <!--业务主键UUID -->
+		<result column="ACCOUNT_UUID" property="accountUuid" /> <!--添加记录的人 -->
+		<result column="FOLLOW_CONTEXT" property="followContext" /> <!--跟进历史 -->
+		<result column="FOLLOW_TYPE_KEY" property="followTypeKey" /> <!--标记状态[数据字典key] -->
+		<result column="FOLLOW_TYPE_VALUE" property="followTypeValue" /> <!--标记状态名称[数据字典描述value] -->
+		<result column="CREATE_TIME" property="createTime" /> <!--创建时间 -->
+		<result column="SALES_TEL_ACCOUNT_UUID" property="salesTelAccountUuid" /> <!--电话记录ID -->
+	</resultMap>
+	<sql id="selectCustomerFollowRecordSql">
+		<![CDATA[
+			SELECT T.UUID,T.ACCOUNT_UUID,T.FOLLOW_CONTEXT,T.FOLLOW_TYPE_KEY,T.FOLLOW_TYPE_VALUE,T.CREATE_TIME,T.SALES_TEL_ACCOUNT_UUID FROM CUSTOMER_FOLLOW_RECORD T
+		]]>
+	</sql>
+	
+	<!--default gencode selectByUUid -->
+	<select id="selectByUUid" parameterType="java.lang.String" resultMap="customerFollowRecordResultMap">
+		<include refid="selectCustomerFollowRecordSql"/>	
+		<![CDATA[ WHERE T.UUID=#{uuid}]]>
+	</select>
+	
+</mapper>
