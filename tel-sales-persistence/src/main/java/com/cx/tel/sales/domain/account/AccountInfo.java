@@ -42,18 +42,18 @@ public class AccountInfo implements Serializable {
 	private String teamTopUuid ; //一级团队名称
 	@TableField(value = "JOB_ENTRY_TIME")
 	private Date jobEntryTime ; //入职时间
-	@TableField(value = "JOB_STATE")
-	private String jobState ; //工作状态[1新账户2：在职3：离职]
 	@TableField(value = "JOB_DIMISSION_TIME")
 	private Date jobDimissionTime ; //离职时间
 	@TableField(value = "CREATE_TIME")
 	private Date createTime ; //创建时间
-	@TableField(value = "CREATE_CREATOR_UUID")
-	private String createCreatorUuid ; //创建人UUID
+	@TableField(value = "CREATE_ACCOUNT_UUID")
+	private String createAccountUuid ; //创建人UUID
 	@TableField(value = "UPDATE_TIME")
 	private Date updateTime ; //修改时间
-	@TableField(value = "UPDATE_CREATOR_UUID")
-	private Date updateCreatorUuid ; //修改人UUID
+	@TableField(value = "UPDATE_ACCOUNT_UUID")
+	private Date updateAccountUuid ; //修改人UUID
+	@TableField(value = "HQ_IS")
+	private String hqIs ; //是否是总部的账号[1总部0非总部]
 
 	public String getUuid() {
 		return this.uuid;
@@ -131,13 +131,6 @@ public class AccountInfo implements Serializable {
 	public void setJobEntryTime(Date jobEntryTime) {
 		this.jobEntryTime = jobEntryTime;
 	}
-	@ApiModelProperty(value = "工作状态[1新账户2：在职3：离职]")
-	public String getJobState() {
-		return jobState;
-	}
-	public void setJobState(String jobState) {
-		this.jobState = jobState;
-	}
 	@ApiModelProperty(value = "离职时间")
 	public Date getJobDimissionTime() {
 		return jobDimissionTime;
@@ -153,11 +146,11 @@ public class AccountInfo implements Serializable {
 		this.createTime = createTime;
 	}
 	@ApiModelProperty(value = "创建人UUID")
-	public String getCreateCreatorUuid() {
-		return createCreatorUuid;
+	public String getCreateAccountUuid() {
+		return createAccountUuid;
 	}
-	public void setCreateCreatorUuid(String createCreatorUuid) {
-		this.createCreatorUuid = createCreatorUuid;
+	public void setCreateAccountUuid(String createAccountUuid) {
+		this.createAccountUuid = createAccountUuid;
 	}
 	@ApiModelProperty(value = "修改时间")
 	public Date getUpdateTime() {
@@ -167,10 +160,17 @@ public class AccountInfo implements Serializable {
 		this.updateTime = updateTime;
 	}
 	@ApiModelProperty(value = "修改人UUID")
-	public Date getUpdateCreatorUuid() {
-		return updateCreatorUuid;
+	public Date getUpdateAccountUuid() {
+		return updateAccountUuid;
 	}
-	public void setUpdateCreatorUuid(Date updateCreatorUuid) {
-		this.updateCreatorUuid = updateCreatorUuid;
+	public void setUpdateAccountUuid(Date updateAccountUuid) {
+		this.updateAccountUuid = updateAccountUuid;
+	}
+	@ApiModelProperty(value = "是否是总部的账号[1总部0非总部]")
+	public String getHqIs() {
+		return hqIs;
+	}
+	public void setHqIs(String hqIs) {
+		this.hqIs = hqIs;
 	}
 }

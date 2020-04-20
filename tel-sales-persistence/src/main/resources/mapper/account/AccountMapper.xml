@@ -12,13 +12,11 @@
 		<result column="FIRST_LOGIN_TIME" property="firstLoginTime" /> <!--第一次登陆时间 -->
 		<result column="LAST_LOGIN_TIME" property="lastLoginTime" /> <!--最近一次登陆时间 -->
 		<result column="PARENT_UUID" property="parentUuid" /> <!--账号的上级[谁给的账号] -->
-		<result column="REST_PASSWORD" property="restPassword" /> <!--是否重置过密码[1:是0否] -->
-		<result column="HQ_IS" property="hqIs" /> <!--是否是总部的账号[1总部0非总部] -->
-		<result column="ACCOUNT_LEVEL" property="accountLevel" /> <!--账户级别[1总部2团长3部门经理4组长5职员] -->
+		<result column="REST_PASSWORD" property="restPassword" /> <!--是否重置密码 -->
 	</resultMap>
 	<sql id="selectAccountSql">
 		<![CDATA[
-			SELECT T.UUID,T.ACCOUNT,T.PASSWORD,T.SALT,T.STATE,T.CREATE_TIME,T.FIRST_LOGIN_TIME,T.LAST_LOGIN_TIME,T.PARENT_UUID,T.REST_PASSWORD,T.HQ_IS,T.ACCOUNT_LEVEL FROM ACCOUNT T
+			SELECT T.UUID,T.ACCOUNT,T.PASSWORD,T.SALT,T.STATE,T.CREATE_TIME,T.FIRST_LOGIN_TIME,T.LAST_LOGIN_TIME,T.PARENT_UUID,T.REST_PASSWORD FROM ACCOUNT T
 		]]>
 	</sql>
 	

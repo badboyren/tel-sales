@@ -14,16 +14,16 @@
 		<result column="JOB_DUTY_KEY" property="jobDutyKey" /> <!--工作职务[数据字典职务读取数据] -->
 		<result column="TEAM_TOP_UUID" property="teamTopUuid" /> <!--一级团队名称 -->
 		<result column="JOB_ENTRY_TIME" property="jobEntryTime" /> <!--入职时间 -->
-		<result column="JOB_STATE" property="jobState" /> <!--工作状态[1新账户2：在职3：离职] -->
 		<result column="JOB_DIMISSION_TIME" property="jobDimissionTime" /> <!--离职时间 -->
 		<result column="CREATE_TIME" property="createTime" /> <!--创建时间 -->
-		<result column="CREATE_CREATOR_UUID" property="createCreatorUuid" /> <!--创建人UUID -->
+		<result column="CREATE_ACCOUNT_UUID" property="createAccountUuid" /> <!--创建人UUID -->
 		<result column="UPDATE_TIME" property="updateTime" /> <!--修改时间 -->
-		<result column="UPDATE_CREATOR_UUID" property="updateCreatorUuid" /> <!--修改人UUID -->
+		<result column="UPDATE_ACCOUNT_UUID" property="updateAccountUuid" /> <!--修改人UUID -->
+		<result column="HQ_IS" property="hqIs" /> <!--是否是总部的账号[1总部0非总部] -->
 	</resultMap>
 	<sql id="selectAccountInfoSql">
 		<![CDATA[
-			SELECT T.UUID,T.ACCOUNT_UUID,T.HAND_IMG,T.NIKE_NAME,T.BIRTHDAY,T.WEIXIN,T.JOB_CODE,T.JOB_DEPT_UUID,T.JOB_DUTY_KEY,T.TEAM_TOP_UUID,T.JOB_ENTRY_TIME,T.JOB_STATE,T.JOB_DIMISSION_TIME,T.CREATE_TIME,T.CREATE_CREATOR_UUID,T.UPDATE_TIME,T.UPDATE_CREATOR_UUID FROM ACCOUNT_INFO T
+			SELECT T.UUID,T.ACCOUNT_UUID,T.HAND_IMG,T.NIKE_NAME,T.BIRTHDAY,T.WEIXIN,T.JOB_CODE,T.JOB_DEPT_UUID,T.JOB_DUTY_KEY,T.TEAM_TOP_UUID,T.JOB_ENTRY_TIME,T.JOB_DIMISSION_TIME,T.CREATE_TIME,T.CREATE_ACCOUNT_UUID,T.UPDATE_TIME,T.UPDATE_ACCOUNT_UUID,T.HQ_IS FROM ACCOUNT_INFO T
 		]]>
 	</sql>
 	

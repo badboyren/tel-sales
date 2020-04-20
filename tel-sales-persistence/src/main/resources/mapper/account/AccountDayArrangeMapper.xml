@@ -4,23 +4,22 @@
 <mapper namespace="com.cx.tel.sales.mapper.account.AccountDayArrangeMapper" >
 	<resultMap id="accountDayArrangeResultMap" type="com.cx.tel.sales.domain.account.AccountDayArrange">
 		<result column="UUID" property="uuid" /> <!--业务主键UUID -->
-		<result column="ACCOUNT_UUID" property="accountUuid" /> <!--用户UUID -->
 		<result column="ARRANGE_CONTEXT" property="arrangeContext" /> <!--日程备注信息 -->
 		<result column="URGENCY_TYPE" property="urgencyType" /> <!--重要程度[1:重要2:普通] -->
 		<result column="START_DATE" property="startDate" /> <!--开始时间 -->
 		<result column="END_DATE" property="endDate" /> <!--结束时间 -->
+		<result column="ACCOUNT_UUID" property="accountUuid" /> <!--创建人UUID -->
+		<result column="PARENT_DEPT_UUID" property="parentDeptUuid" /> <!--上级所属部门UUID -->
 		<result column="CUSTOMER_INPUT" property="customerInput" /> <!--手动输入客户信息 -->
 		<result column="CUSTOMER_JOIN_UUID" property="customerJoinUuid" /> <!--客户关联日程[优先级高] -->
 		<result column="ARRANGE_COLOR" property="arrangeColor" /> <!--日志标记颜色[红橙黄绿青蓝紫1234567] -->
-		<result column="PARENT_DEPT_UUID" property="parentDeptUuid" /> <!--上级所属部门UUID -->
 		<result column="DELETE_IS" property="deleteIs" /> <!--是否删除[1:删除0未删除] -->
-		<result column="CREATOR_UUID" property="creatorUuid" /> <!--创建人uuid -->
 		<result column="CREATE_TIME" property="createTime" /> <!--创建时间 -->
 		<result column="UPDATE_TIME" property="updateTime" /> <!--最近更新时间 -->
 	</resultMap>
 	<sql id="selectAccountDayArrangeSql">
 		<![CDATA[
-			SELECT T.UUID,T.ACCOUNT_UUID,T.ARRANGE_CONTEXT,T.URGENCY_TYPE,T.START_DATE,T.END_DATE,T.CUSTOMER_INPUT,T.CUSTOMER_JOIN_UUID,T.ARRANGE_COLOR,T.PARENT_DEPT_UUID,T.DELETE_IS,T.CREATOR_UUID,T.CREATE_TIME,T.UPDATE_TIME FROM ACCOUNT_DAY_ARRANGE T
+			SELECT T.UUID,T.ARRANGE_CONTEXT,T.URGENCY_TYPE,T.START_DATE,T.END_DATE,T.ACCOUNT_UUID,T.PARENT_DEPT_UUID,T.CUSTOMER_INPUT,T.CUSTOMER_JOIN_UUID,T.ARRANGE_COLOR,T.DELETE_IS,T.CREATE_TIME,T.UPDATE_TIME FROM ACCOUNT_DAY_ARRANGE T
 		]]>
 	</sql>
 	

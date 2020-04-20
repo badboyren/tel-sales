@@ -6,7 +6,7 @@ import com.cx.tel.sales.domain.account.AccountDayArrange;
 /**
  * accountDayArrange - mapper
  * @author yangjie
- *  功能描述:日程计划管理
+ *  功能描述:我的日程管理管理
  */
 @Mapper
 public interface AccountDayArrangeMapper extends BaseMapper<AccountDayArrange>{
