@@ -39,7 +39,11 @@ public class Account implements Serializable {
 	@TableField(value = "PARENT_UUID")
 	private String parentUuid ; //账号的上级[谁给的账号]
 	@TableField(value = "REST_PASSWORD")
-	private String restPassword ; //是否重置密码
+	private String restPassword ; //是否重置过密码[1:是0否]
+	@TableField(value = "HQ_IS")
+	private String hqIs ; //是否是总部的账号[1总部0非总部]
+	@TableField(value = "ACCOUNT_LEVEL")
+	private String accountLevel ; //账户级别[1总部2团长3部门经理4组长5职员]
 
 	public String getUuid() {
 		return this.uuid;
@@ -103,11 +107,25 @@ public class Account implements Serializable {
 	public void setParentUuid(String parentUuid) {
 		this.parentUuid = parentUuid;
 	}
-	@ApiModelProperty(value = "是否重置密码")
+	@ApiModelProperty(value = "是否重置过密码[1:是0否]")
 	public String getRestPassword() {
 		return restPassword;
 	}
 	public void setRestPassword(String restPassword) {
 		this.restPassword = restPassword;
+	}
+	@ApiModelProperty(value = "是否是总部的账号[1总部0非总部]")
+	public String getHqIs() {
+		return hqIs;
+	}
+	public void setHqIs(String hqIs) {
+		this.hqIs = hqIs;
+	}
+	@ApiModelProperty(value = "账户级别[1总部2团长3部门经理4组长5职员]")
+	public String getAccountLevel() {
+		return accountLevel;
+	}
+	public void setAccountLevel(String accountLevel) {
+		this.accountLevel = accountLevel;
 	}
 }
